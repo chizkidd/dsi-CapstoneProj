@@ -57,7 +57,7 @@ I would present a slide show or visualization.
 ### Forest Fire Data set Data sources
 1) [UCI ML Repo](https://archive.ics.uci.edu/ml/datasets/forest+fires)
 2) [DSI UMinho](http://www.dsi.uminho.pt/~pcortez/forestfires)
-3) [Catalog Data.gov](hhttps://catalog.data.gov/dataset?tags=forest+fire+science)
+3) [Catalog Data.gov](https://catalog.data.gov/dataset?tags=forest+fire+science)
 4) [DataMarket](https://datamarket.com/data/set/198q/forest-fires)
 5) [DataWorld](https://data.world/uci/forest-fires)
 
