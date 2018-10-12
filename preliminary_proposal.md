@@ -1,21 +1,21 @@
-# Crude Oil Prediction
+# Crude Oil Price Prediction
 
 ### Purpose
-Crude oil is one of the most vital energy resources on earth, as it is the world's leading most consumed fuel. Crude oil prices are influenced by so many factors and conditions, and also have global economic and environmental impact. Crude oil price forecasts are useful to oil and gas industries, energy industries, oil investors, and world governments in risk determination and reduction, and strategic planing in oil supply management and contractual local, national and global oil trade decisions.
+Crude oil is one of the most vital energy resources on earth, as it is the world's leading most consumed fuel. Crude oil prices are influenced by so many factors and conditions, and also have global economic and environmental impact. Crude oil price forecasts are useful to oil and gas industries, energy industries, oil investors, and world governments in risk determination and reduction, and strategic planning in oil supply management and contractual local, national and global oil trade decisions.
 
 ### Problem
-The high volatility, nonlinearity, and chaotic nature of crude oil prices is a major problem for crude oil price prediction. In most cases, decline in oil prices lead to a boost in global economic activity irregardless of the potential income losses incurred by the oil sector keyplayers. Furthermore, different government regimes at different points in time influence the price of crude oil. All these factors contribute to significant challenges in forecasting crude oil prices.
+The high volatility, nonlinearity, and chaotic nature of crude oil prices is a major problem for crude oil price prediction. In most cases, decline in oil prices lead to a boost in global economic activity regardless of the potential income losses incurred by the oil sector key-players. Furthermore, different government regimes at different points in time influence the price of crude oil. All these factors contribute to significant challenges in forecasting crude oil prices.
 
 ### How I will present my work
 I would like to present my work using visualization or presentation
 
 ### Data sources
-1) US Department of Energy: Energy Information Administratiion 
+1) US Department of Energy: Energy Information Administration 
 	- [US DOE EIA: Sep 1996 to Aug 2007](https://www.eia.gov/)
 	- [Petroleum and Crude Oil Data](https://www.eia.gov/dnav/pet/pet_pri_fut_s1_d.htm)
 
 2) [Google Big Query](https://cloud.google.com/bigquery/)
-	- crude-oil-public-data dataset
+	- Crude-oil-public-data dataset
 
 ### Next Step
 My next step is to extract the data from the US EIA database, and Google Big Query. Upon the course of my data extraction and mining, I might run into other helpful data sources
@@ -34,31 +34,33 @@ The major problem that I will like to tackle with my model is the uncertainty an
 I would present a slide show and possibly a web app that takes in an input of 2 teams before a game and predicts the home team's expected goals and possibly the score outcome.
 
 ### Data sources
-1) [whoscored.com - Team Statistics](https://www.whoscored.com/Statistics)
-2) [whoscored.com - Player Statistics](https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/6829/Stages/15151/PlayerStatistics/England-Premier-League-2017-2018)
-3) [worldfootball.net - EPL statistics](https://www.worldfootball.net/stats/eng-premier-league/)
+1) [WhoScored - Team Statistics](https://www.whoscored.com/Statistics)
+2) [WhoScored - Player Statistics](https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/6829/Stages/15151/PlayerStatistics/England-Premier-League-2017-2018)
+3) [WorldFootball - EPL statistics](https://www.worldfootball.net/stats/eng-premier-league/)
 
 ### Next Step
 My next step is to perform data mining from my available data sources, and then start working on my model analysis.
 
+
 #
-# College Football Quarterback Prediction
+# Forest Fire Likelihood and Location Occurrence Prediction
 
 ### Purpose
-Predict if a high school football quarterback will perform well at the college level.
+Forest fire prediction is a very important component of forest fire management. The purpose is to create a model to sort through historical meteorological data to help predict where and when future forest fires can/will take place so they can be prevented.
 
 ### Problem
-UT seems to have great difficulty finding a good quarterback even though the Texas high schools are noted as being a top field for recruiting. If UT could more accurately predict if a high school quarterback will perform well at the college level they could more consistently recruit high quality quarterbacks and win more games. 
+Forest fires are influenced by various weather conditions, which have a large degree of uncertainty associated with them. With climate change raising temperatures, wildfires have been a growing concern for many countries around the world. Forest fires adversely affect the environment (a significant portion of terrestrial ecosystems). It will be very vital to have a model that can sift through data and predict where and when certain extreme weather conditions form a basis for forest fire outbreaks.
 
 ### How I will present my work
 I would present a slide show or visualization.
 
-### Data sources
-1) [Maxpreps](http://www.maxpreps.com)
-2) [Houston Chronical](https://www.chron.com/sports/highschool/scoreboard/)
-3) [ESPN](http://www.espn.com/college-football/statistics)
-4) [CBS Sports](https://www.cbssports.com/collegefootball/stats/playersort/NCAAF/QB)
-5) [Football Outsiders](https://www.footballoutsiders.com/stats/qb)
+### Forest Fire Data set Data sources
+1) [UCI ML Repo](https://archive.ics.uci.edu/ml/datasets/forest+fires)
+2) [DSI UMinho](http://www.dsi.uminho.pt/~pcortez/forestfires)
+3) [Catalog Data.gov](hhttps://catalog.data.gov/dataset?tags=forest+fire+science)
+4) [DataMarket](https://datamarket.com/data/set/198q/forest-fires)
+5) [DataWorld](https://data.world/uci/forest-fires)
 
 ### Next Step
-My next step is to gather the data and speak with experts to get a better idea on features to target for data acquisition.
+My next step is to perform data mining from my available data sources, and then start working on my model analysis.
+
