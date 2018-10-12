@@ -4,7 +4,7 @@
 Crude oil is one of the most vital energy resources on earth, as it is the world's leading most consumed fuel. Crude oil prices are influenced by so many factors and conditions, and also have global economic and environmental impact. Crude oil price forecasts are useful to oil and gas industries, energy industries, oil investors, and world governments in risk determination and reduction, and strategic planning in oil supply management and contractual local, national and global oil trade decisions.
 
 ### Problem
-The high volatility, nonlinearity, and chaotic nature of crude oil prices is a major problem for crude oil price prediction. In most cases, decline in oil prices lead to a boost in global economic activity regardless of the potential income losses incurred by the oil sector key-players. Furthermore, different government regimes at different points in time influence the price of crude oil. All these factors contribute to significant challenges in forecasting crude oil prices.
+The high volatility, nonlinearity, and chaotic nature of crude oil price are major problems for crude oil price prediction. In most cases, decline in oil prices lead to a boost in global economic activity regardless of the potential income losses incurred by the oil sector key-players. Furthermore, different government regimes at different points in time influence the price of crude oil. All these factors contribute to significant challenges in forecasting crude oil prices.
 
 ### How I will present my work
 I would like to present my work using visualization or slide show presentation
@@ -13,8 +13,8 @@ I would like to present my work using visualization or slide show presentation
 1) US Department of Energy: Energy Information Administration 
 	- [US DOE EIA: Sep 1996 to Aug 2007](https://www.eia.gov/)
 	- [Petroleum and Crude Oil Data](https://www.eia.gov/dnav/pet/pet_pri_fut_s1_d.htm)
-
-2) [Google Big Query](https://cloud.google.com/bigquery/)
+2) [WTI Crude Oil Spot Price](https://ycharts.com/indicators/crude_oil_spot_price)	
+3) [Google Big Query](https://cloud.google.com/bigquery/)
 	- Crude-oil-public-data dataset
 
 ### Next Step
