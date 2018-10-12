@@ -4,7 +4,7 @@
 Crude oil is one of the most vital energy resources on earth, as it is the world's leading most consumed fuel. Crude oil prices are influenced by so many factors and conditions, and also have global economic and environmental impact. Crude oil price forecasts are useful to oil and gas industries, energy industries, oil investors, and world governments in risk determination and reduction, and strategic planing in oil supply management and contractual local, national and global oil trade decisions.
 
 ### Problem
-The high volatility, nonlinearity, and chaotic nature of crude oil prices is a major problem for crude oil price prediction. In most cases, decline in oil prices lead to a boost in global economic activity irregardless of the potential income losses incurred by the oil sector keyplayers. Furthermore, different government regimes at different points in time influence the price of crude oil.
+The high volatility, nonlinearity, and chaotic nature of crude oil prices is a major problem for crude oil price prediction. In most cases, decline in oil prices lead to a boost in global economic activity irregardless of the potential income losses incurred by the oil sector keyplayers. Furthermore, different government regimes at different points in time influence the price of crude oil. All these factors contribute to significant challenges in forecasting crude oil prices.
 
 ### How I will present my work
 I would like to present my work using visualization or presentation
