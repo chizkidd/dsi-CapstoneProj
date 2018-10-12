@@ -11,7 +11,7 @@ I would like to present my work using visualization or presentation
 
 ### Data sources
 1) US Department of Energy: Energy Information Administratiion 
-	- [US DOE EIA](https://www.eia.gov/)
+	- [US DOE EIA: Sep 1996 to Aug 2007](https://www.eia.gov/)
 	- [Petroleum and Crude Oil Data](https://www.eia.gov/dnav/pet/pet_pri_fut_s1_d.htm)
 
 2) [Google Big Query](https://cloud.google.com/bigquery/)
@@ -22,25 +22,24 @@ My next step is to extract the data from the US EIA database, and Google Big Que
 
 
 #
-# Soccer Goals Prediction
+# Soccer Average Expected Goals Prediction
 
 ### Purpose
-
+In soccer, future tactical strategies are made based on known statistics of both home and away teams. Being able to predict the average expected goals of a home team in a home game in the English Premier League (EPL) will be the main purpose of this model given specific opponents. Additionally if time permits, the model will be made to predict scores between two EPL soccer teams in a home and away fixture, and will be extended to France, Germany, Spain and Italy (Elite soccer leagues).
 
 ### Problem
+The major problem that I will like to tackle with my model is the uncertainty and variability in soccer influenced by many factors ranging from player performance to team performance to manager tactical decisions (formations, lineup selection).
 
 ### How I will present my work
-I would present a slide show
+I would present a slide show and possibly a web app that takes in an input of 2 teams before a game and predicts the home team's expected goals and possibly the score outcome.
 
 ### Data sources
-1) [Artnet price database](https://www.artnet.com/price-database/)
-2) [Stark Museum of Art](http://starkculturalvenues.org/starkmuseum/) (Specializes in western art and buys western art regularly.)
-3) [Invaluable](https://www.invaluable.com/features/artfact1000.cfm?sgID=3&groupName=American%20Painting%3A%2018th%2F19th%20Century)
-4) [Mutualart](https://www.mutualart.com)
-5) [Mearto](https://www.mearto.com/search)
+1) [whoscored.com - Team Statistics](https://www.whoscored.com/Statistics)
+2) [whoscored.com - Player Statistics](https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/6829/Stages/15151/PlayerStatistics/England-Premier-League-2017-2018)
+3) [worldfootball.net - EPL statistics](https://www.worldfootball.net/stats/eng-premier-league/)
 
 ### Next Step
-My next step is to gather the data and speak with experts to get a better idea on features to target for data acquisition.
+My next step is to perform data mining from my available data sources, and then start working on my model analysis.
 
 #
 # College Football Quarterback Prediction
