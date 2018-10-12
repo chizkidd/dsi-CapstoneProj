@@ -49,7 +49,7 @@ My next step is to perform data mining from my available data sources, and then 
 Forest fire prediction is a very important component of forest fire management. The purpose is to create a model to sort through historical meteorological data to help predict where and when future forest fires can/will take place so they can be prevented.
 
 ### Problem
-Forest fires are influenced by various weather conditions, which have a large degree of uncertainty associated with them. With climate change raising temperatures, wildfires have been a growing concern for many countries around the world. Forest fires adversely affect the environment (a significant portion of terrestrial ecosystems). It will be very vital to have a model that can sift through data and predict where and when certain extreme weather conditions form a basis for forest fire outbreaks.
+Forest fires are influenced by various weather conditions, which have a large degree of uncertainty associated with them. With climate change raising temperatures, wildfires have been a growing concern for many countries around the world. Forest fires adversely affect the environment (a significant portion of terrestrial ecosystems). It will be very vital to have a model that can sift through data and predict where and when certain extreme weather conditions occur that increase the likelihood and chance of occurence for forest fire outbreaks.
 
 ### How I will present my work
 I would present a slide show or visualization.
