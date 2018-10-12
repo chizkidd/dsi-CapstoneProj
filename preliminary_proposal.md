@@ -1,33 +1,33 @@
-# Patent Classification
+# Crude Oil Prediction
 
 ### Purpose
-Classify patent applications by the US Patent and Trademark Office (USPTO) art unit classification. Currently this is the first step in the processing of a patent application sent to the USPTO. 135 people read each application and assign it to an art unit. The turnaround time is 28 days, and the contracting firm costs about 95 million over 5 years (this might have increased). The art unit is a unit with a technological background to understand the technology in the patent application. 
+Crude oil is one of the most vital energy resources on earth, as it is the world's leading most consumed fuel. Crude oil prices are influenced by so many factors and conditions, and also have global economic and environmental impact. Crude oil price forecasts are useful to oil and gas industries, energy industries, oil investors, and world governments in risk determination and reduction, and strategic planing in oil supply management and contractual local, national and global oil trade decisions.
 
 ### Problem
-It currently takes too long and costs too much for a patent to be classified and assigned to the correct art unit. Additionally, if patent attorneys can write the patent application with the correct wording to direct the application to one art unit over another, they can increase the likelihood of the patent being granted.
+The high volatility, nonlinearity, and chaotic nature of crude oil prices is a major problem for crude oil price prediction. In most cases, decline in oil prices lead to a boost in global economic activity irregardless of the potential income losses incurred by the oil sector keyplayers. Furthermore, different government regimes at different points in time influence the price of crude oil.
 
 ### How I will present my work
-I would like to have a web app to be used by friends in the legal industry. My minimum viable product would be a presentation.
+I would like to present my work using visualization or presentation
 
 ### Data sources
-1) USPTO
-	- [USPTO bulkdata data dictionary](https://bulkdata.uspto.gov/data/patent/office/actions/bigdata/2017/USPTO%20Patent%20Prosecution%20Research%20Data_Unlocking%20Office%20Action%20Traits.pdf)
-	- [USPTO public pair dataset](https://www.uspto.gov/learning-and-resources/electronic-data-products/patent-examination-research-dataset-public-pair)
+1) US Department of Energy: Energy Information Administratiion 
+	- [US DOE EIA](https://www.eia.gov/)
+	- [Petroleum and Crude Oil Data](https://www.eia.gov/dnav/pet/pet_pri_fut_s1_d.htm)
 
 2) [Google Big Query](https://cloud.google.com/bigquery/)
-	- patents-public-data dataset
+	- crude-oil-public-data dataset
 
 ### Next Step
-My next step is to construct an SQL query to collect the data I will need from Google Big Query. I will also need to collect additional data from the USPTO office action data bases.
+My next step is to extract the data from the US EIA database, and Google Big Query. Upon the course of my data extraction and mining, I might run into other helpful data sources
+
 
 #
-# Art Price Prediction
+# Soccer Goals Prediction
 
 ### Purpose
-Predict the price of art, or predict up and coming artists, specifically for western art. 
+
 
 ### Problem
-Predicting what a painting will go for at auction or what artist would be a good investment is difficult even for a professional.
 
 ### How I will present my work
 I would present a slide show
