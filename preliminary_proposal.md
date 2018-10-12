@@ -7,7 +7,7 @@ Crude oil is one of the most vital energy resources on earth, as it is the world
 The high volatility, nonlinearity, and chaotic nature of crude oil prices is a major problem for crude oil price prediction. In most cases, decline in oil prices lead to a boost in global economic activity regardless of the potential income losses incurred by the oil sector key-players. Furthermore, different government regimes at different points in time influence the price of crude oil. All these factors contribute to significant challenges in forecasting crude oil prices.
 
 ### How I will present my work
-I would like to present my work using visualization or presentation
+I would like to present my work using visualization or slide show presentation
 
 ### Data sources
 1) US Department of Energy: Energy Information Administration 
@@ -49,10 +49,10 @@ My next step is to perform data mining from my available data sources, and then 
 Forest fire prediction is a very important component of forest fire management. The purpose is to create a model to sort through historical meteorological data to help predict where and when future forest fires can/will take place so they can be prevented.
 
 ### Problem
-Forest fires are influenced by various weather conditions, which have a large degree of uncertainty associated with them. With climate change raising temperatures, wildfires have been a growing concern for many countries around the world. Forest fires adversely affect the environment (a significant portion of terrestrial ecosystems). It will be very vital to have a model that can sift through data and predict where and when certain extreme weather conditions occur that increase the likelihood and chance of occurence for forest fire outbreaks.
+Forest fires are influenced by various weather conditions, which have a large degree of uncertainty associated with them. With climate change raising temperatures, wildfires have been a growing concern for many countries around the world. Forest fires adversely affect the environment (a significant portion of terrestrial ecosystems). It will be very vital to have a model that can sift through data and predict where and when certain extreme weather conditions occur that increase the likelihood and chance of occurrence for forest fire outbreaks.
 
 ### How I will present my work
-I would present a slide show or visualization.
+I would like to present my work using visualization or slide show presentation
 
 ### Forest Fire Data set Data sources
 1) [UCI ML Repo](https://archive.ics.uci.edu/ml/datasets/forest+fires)
