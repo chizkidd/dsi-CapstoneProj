@@ -1,7 +1,7 @@
 # <center> Final Capstone Proposal - Soccer Match Results Prediction  </center>
 
 
-## <center> <img src="images/epl_predictor.png" width="200" height="100" /> </center>
+## <center> <img src="images/epl_predictor.png" width="400" height="200" /> </center>
 
 
 #### Purpose, Background Information & Motivation
