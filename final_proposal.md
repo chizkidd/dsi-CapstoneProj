@@ -1,5 +1,3 @@
-# Soccer Average Expected Goals Prediction
-
 # <center> Final Capstone Proposal - Soccer Match Results Prediction  </center>
 
 
