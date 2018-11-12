@@ -37,4 +37,4 @@ My goal is to obtain data from the sources (team, and player) below. WhoScored.c
 
 
 
-![workflow](images/workflow.png)
+![workflow](images/basic_workflow.png)
