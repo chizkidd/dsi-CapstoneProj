@@ -13,7 +13,7 @@ The purpose of my capstone project is to predict the winning team in a soccer ga
   - [The Beautiful Game: Predicting the Premier League with a random model](https://towardsdatascience.com/o-jogo-bonito-predicting-the-premier-league-with-a-random-model-1b02fa3a7e5a)
   - [Predicting Football Results With Statistical Modelling](https://dashee87.github.io/football/python/predicting-football-results-with-statistical-modelling/)
 
-From the resources above and others online, poisson models were widely used due to the discrete probabilty distribution nature of a 90-minute match game in soccer for goals per game and the understanding of poisson distribution. Classifier models (linear stochastic gradient descent, naive baye, support vector machines (SVM), random forest, markov model, etc.) were also used in some cases to explicitly predict either a win, draw or loss.
+From the resources above and others online, poisson models were widely used due to the discrete probabilty distribution nature of a 90-minute match game in soccer for goals per game and the understanding of poisson distribution. Classifier models (linear stochastic gradient descent, naive bayes, support vector machines (SVM), random forest, markov model, etc.) were also used in some cases to explicitly predict either a win, draw or loss.
 
 
 ## Presentation
