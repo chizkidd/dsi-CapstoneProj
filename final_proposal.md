@@ -21,7 +21,7 @@ From the resources above and others online, poisson models were widely used due 
 
 
 ## Data Sources
-My goal is to obtain data from the sources (team, and player) below. WhoScored.com collects data for 15,000 games across 5 different leagues (England, Spain, Italy, France and Germany). For this capstone project, the focus will be the English Premier League, as such only data from England will be used. Currently, webscraping functions are being written to scrape the dataset, while mongoDB or Postgres-SQL DB will be the storage location for the dataset.
+My goal is to obtain data from the sources (team, and player) below. [WhoScored.com](https://www.whoscored.com/) collects data for 15,000 games across 5 different leagues (England, Spain, Italy, France and Germany). For this capstone project, the focus will be the English Premier League, as such only data from England will be used. Currently, webscraping functions are being written to scrape the dataset, while mongoDB or Postgres-SQL DB will be the storage location for the dataset.
 1) [WhoScored - Team Statistics](https://www.whoscored.com/Statistics)
 2) [WhoScored - Player Statistics](https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/6829/Stages/15151/PlayerStatistics/England-Premier-League-2017-2018)
 3) [WorldFootball - EPL statistics](https://www.worldfootball.net/stats/eng-premier-league/)
