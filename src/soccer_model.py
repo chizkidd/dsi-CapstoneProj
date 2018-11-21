@@ -62,7 +62,7 @@ class Model(object):
 
     def predict(self, X_test):
         '''
-        Returns predicted probabilities for not fraud / fraud
+        Returns predicted probabilities for targets
         '''
         return self.model.predict(X_test)
 
