@@ -28,12 +28,13 @@ def feat_eng(csv_file):
 
     # handle categories - categorical encoding
     # allow for classification modeling
-    #a void [scikit-learn error: The least populated class in y has only 1 member]
+    # a void [scikit-learn error: The least populated class in y has only 1 member]
     results_mask = {-6: -1, -5: -1, -4: -1, -3: -1, -2: -1, -1: -1,
                     0: 0, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1}
     noHT_epl_df['resultsLabel'] = noHT_epl_df['results'].map(results_mask)
 
-    #encoding categories for modeling
+    # encoding categories for modeling
+    # encoding team-names, team formation
     team_mask = {'Arsenal': 1, 'Swansea': 2, 'West Brom': 3, 'Newcastle': 4, 'Liverpool': 5,
                  'West Ham': 6, 'Chelsea': 7, 'Everton': 8, 'Man Utd': 9, 'Southampton': 10,
                  'Stoke': 11, 'Sunderland': 12, 'Wigan': 13, 'Tottenham': 14, 'Fulham': 15, 'Reading': 16,
@@ -44,6 +45,7 @@ def feat_eng(csv_file):
 
     # http://www.freeyouthsoccerdrills.com/soccer-formations.html
     # https://bleacherreport.com/articles/1375589-15-tactical-formations-and-what-theyre-good-for#slide7
+    # https://www.dummies.com/sports/soccer/choosing-a-formation-in-soccer/
     '''
     AA(6) - highly attacking - '343', '433','352', '3412', '3142', '4240' 
     AB(5) - attacking - '3421', '4141','3511', '4132', '4312'
@@ -70,6 +72,13 @@ def feat_eng(csv_file):
 
 
 def category_encoder(df):
+    '''
+    :param df: dataframe
+    :return: df: dataframe
+
+    categorical label encoding for ['refereeName', 'venueName']
+
+    '''
     encode = {}
     cat_map = {}
     cat_cols = ['homeFormation', 'refereeName','awayManagerName',
