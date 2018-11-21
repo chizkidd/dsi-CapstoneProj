@@ -43,8 +43,8 @@ class Model(object):
         '''
         df = feat_eng(csvFILEpath)
         df = preprocess_feat_eng(json_df)
-        y = df_rf.pop('fraud')
-        X = df_rf.values
+        y = df.pop('resultsLabel')
+        X = df.values
         return X, y
 
     def fit(self, X_train, y_train, model):
