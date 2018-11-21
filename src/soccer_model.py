@@ -37,27 +37,26 @@ class Model(object):
 
     def get_data(self):
         '''
-        Create dataframe from raw json file
+        Preprocess csvfile through dataframe
         Create features set X
         Create targets set y
         '''
-        json_df = read_json(self.data_path)
+        df = feat_eng(csvFILEpath)
         df = preprocess_feat_eng(json_df)
-        df_rf = df.drop(['description', 'name', 'org_desc', 'org_name'], axis=1)
         y = df_rf.pop('fraud')
         X = df_rf.values
         return X, y
 
-    def fit(self, X_train, y_train):
+    def fit(self, X_train, y_train, model):
         '''
-        Fit Gradient Boosted Classifier with training data
+        Fit model classifier/regressor with training data
         '''
-        self.model = RandomForestClassifier(n_estimators=100,random_state=0,n_jobs=-1)
+        self.model = model
         self.model.fit(X_train, y_train)
 
     def predict_proba(self, X_test):
         '''
-        Returns predicted probabilities for not fraud / fraud
+        Returns predicted probabilities for targets [-1, 0, 1] --> [loss, draw, win]
         '''
         return self.model.predict_proba(X_test)[:, 1]
 
