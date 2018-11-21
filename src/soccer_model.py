@@ -68,7 +68,7 @@ class Model(object):
 
 
 if __name__ == '__main__':
-    csvFILEpath = Input("Enter path to file that you wish to preprocess: (should be a .csv file) ")
+    csvFILEpath = Input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
     model = Model(csvFILEpath)
     X, y = model.get_data()
     model.fit(X, y)
