@@ -20,6 +20,9 @@ def feat_eng(csv_file):
     # drop halftime stats due to cumulative nature of fulltime stats
     noHT_epl_df = epl_df[epl_df.columns.drop(epl_df.filter(regex='HT', axis=1).columns)]
 
+    # drop unnecessary extra index columns
+    noHT_epl_df = noHT_epl_df.drop(['Unnamed: 0', 'id'], axis=1)
+
     # handle missing null values (column with max null % = 4.1%)
     noHT_epl_df = noHT_epl_df.fillna(noHT_epl_df.median())
 
@@ -64,7 +67,7 @@ def feat_eng(csv_file):
     noHT_epl_df['homeFormation'] = noHT_epl_df['homeFormation'].map(formation_mask).astype('category').cat.codes
     noHT_epl_df['awayFormation'] = noHT_epl_df['awayFormation'].map(formation_mask).astype('category').cat.codes
 
-    model_df = noHT_epl_df.drop(['Unnamed: 0', 'id', 'awayTeamLineUp', 'homeTeamLineUp',
+    model_df = noHT_epl_df.drop(['awayTeamLineUp', 'homeTeamLineUp',
                               'homeGoalFT', 'awayGoalFT', 'awayManagerName', 'homeManagerName',
                               'date', 'division', 'results', 'resultsWDL'], axis=1)
     model_df = category_encoder(model_df)
@@ -81,10 +84,10 @@ def category_encoder(df):
     '''
     encode = {}
     cat_map = {}
-    cat_cols = ['homeFormation', 'refereeName','awayManagerName',
+    #cat_cols = ['homeFormation', 'refereeName','awayManagerName',
                 'awayTeam', 'awayFormation', 'homeTeam','homeManagerName', 'venueName']
-    cat_cols2 = ['refereeName', 'awayManagerName', 'homeManagerName', 'venueName']
-    cat_cols3 = ['refereeName', 'venueName','homeFormation','awayFormation']
+    #cat_cols2 = ['refereeName', 'awayManagerName', 'homeManagerName', 'venueName']
+    #cat_cols3 = ['refereeName', 'venueName','homeFormation','awayFormation']
     cat_cols4 = ['refereeName', 'venueName']
     for column in cat_cols4:
         le = LabelEncoder()
