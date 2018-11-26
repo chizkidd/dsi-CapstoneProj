@@ -26,9 +26,9 @@ from sklearn.naive_bayes import MultinomialNB
 
 import matplotlib.pyplot as plt
 
-class Model(object):
+class SoccerModel(object):
     '''
-    Model for predictions for supervised/unsupervised learning.
+    Model for soccer predictions for supervised/unsupervised learning.
     '''
     def __init__(self, data_path):
         self.data_path = data_path
