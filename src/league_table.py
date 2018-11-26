@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
-from preprocessor import feat_eng, category_encoder
+from preprocessor import feat_eng, create_model_df, category_encoder
 
 
 def create_league_table(csv_file):
@@ -14,11 +14,15 @@ def create_league_table(csv_file):
     '''
     premtable = feat_eng(csv_file)
 
-    # results W.R.T. to the hometeam and awayteam
+    # encoding for results (win, loss, draw)
+    EPL_res_keyH = {'W': 3, 'L': 0, 'D': 1}
+    EPL_res_keyA = {'W': 0, 'L': 3, 'D': 1}
+
+    # results WRT to the hometeam and awayteam
     premtable['EPLresultH'] = premtable.resultsWDL.map(EPL_res_keyH)
     premtable['EPLresultA'] = premtable.resultsWDL.map(EPL_res_keyA)
 
-    # encode team
+    # encode team name back
     team_mask = {'Arsenal': 1, 'Swansea': 2, 'West Brom': 3, 'Newcastle': 4, 'Liverpool': 5,
                  'West Ham': 6, 'Chelsea': 7, 'Everton': 8, 'Man Utd': 9, 'Southampton': 10,
                  'Stoke': 11, 'Sunderland': 12, 'Wigan': 13, 'Tottenham': 14, 'Fulham': 15, 'Reading': 16,
@@ -30,13 +34,13 @@ def create_league_table(csv_file):
     premtable['EPLawayTeam'] = premtable['awayTeam'].map(inv_team_mask)
 
     HomePtTally_df = premtable.groupby('EPLhomeTeam')[
-        'EPLhomeTeam', 'EPLawayTeam', 'results', 'EPLresultH'].sum().sort_values('EPLresultH', ascending=False)
+        'EPLhomeTeam', 'EPLawayTeam', 'EPLresultH'].sum().sort_values('EPLresultH', ascending=False)
     AwayPtTally_df = premtable.groupby('EPLawayTeam')[
-        'EPLhomeTeam', 'EPLawayTeam', 'results', 'EPLresultA'].sum().sort_values('EPLresultA', ascending=False)
+        'EPLhomeTeam', 'EPLawayTeam', 'EPLresultA'].sum().sort_values('EPLresultA', ascending=False)
 
     epltable = pd.concat([HomePtTally_df, AwayPtTally_df], axis=1)
     epltable['EPLresult'] = epltable['EPLresultH'] + epltable['EPLresultA']
-    epltable = epltable.sort_values('EPLresult', ascending=False)
+    print(epltable.sort_values('EPLresult', ascending=False))
     return epltable
 
 
@@ -50,7 +54,7 @@ def plot_league_table(csv_file):
 
     '''
     cum_league_table = create_league_table(csv_file)
-    cum_league_table.plot(kind='bar', figsize=(10, 5))
+    cum_league_table['EPLresult'].sort_values(ascending=False).plot(kind='bar', figsize=(10, 5))
     plt.title('Point Tally per Team from 2012/13 to 2016/2017')
     plt.xlabel('EPL team')
     plt.ylabel('Actual Cumulative Point Tally')
@@ -58,5 +62,5 @@ def plot_league_table(csv_file):
 
 
 if __name__ == '__main__':
-    csv_file = Input("Enter path to file that you wish to preprocess and plot: (should be a .csv file) ")
+    csv_file = input("Enter path to file that you wish to preprocess and plot: (should be a .csv file) ")
     plot_table = plot_league_table(csv_file)

@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from itertools import cycle
 
-from preprocesser import feat_eng, category_encoder
+from preprocessor import feat_eng, category_encoder
 
 from scipy import interp
 import scipy.stats as scs
@@ -25,9 +25,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import MultinomialNB
 
 import matplotlib.pyplot as plt
-%matplotlib inline
-%config InlineBackend.figure_format='retina'
-
 
 class Model(object):
 
@@ -68,7 +65,7 @@ class Model(object):
 
 
 if __name__ == '__main__':
-    csvFILEpath = Input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
+    csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
     model = Model(csvFILEpath)
     X, y = model.get_data()
     model.fit(X, y)

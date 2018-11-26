@@ -70,8 +70,20 @@ def feat_eng(csv_file):
     noHT_epl_df['awayTeam'] = noHT_epl_df['awayTeam'].map(team_mask)
     noHT_epl_df['homeFormation'] = noHT_epl_df['homeFormation'].map(formation_mask).astype('category').cat.codes
     noHT_epl_df['awayFormation'] = noHT_epl_df['awayFormation'].map(formation_mask).astype('category').cat.codes
+    return noHT_epl_df
 
-    model_df = noHT_epl_df.drop(['awayTeamLineUp', 'homeTeamLineUp',
+
+def create_model_df(csv_file):
+    '''
+
+    :param csv_file: [type: csv file]
+    :return: df: [type: pandas dataframe]
+
+    A function that does feature engineering on a csv file and returns a dataframe for modeling
+    '''
+
+    cleaned_df = feat_eng(csv_file)
+    model_df = cleaned_df.drop(['awayTeamLineUp', 'homeTeamLineUp',
                               'homeGoalFT', 'awayGoalFT', 'awayManagerName', 'homeManagerName',
                               'date', 'division', 'results', 'resultsWDL'], axis=1)
     model_df = category_encoder(model_df)
@@ -88,10 +100,12 @@ def category_encoder(df):
     '''
     encode = {}
     cat_map = {}
-    #cat_cols = ['homeFormation', 'refereeName','awayManagerName',
-                'awayTeam', 'awayFormation', 'homeTeam','homeManagerName', 'venueName']
-    #cat_cols2 = ['refereeName', 'awayManagerName', 'homeManagerName', 'venueName']
-    #cat_cols3 = ['refereeName', 'venueName','homeFormation','awayFormation']
+    '''
+    cat_cols = ['homeFormation', 'refereeName','awayManagerName','awayTeam', 
+    'awayFormation', 'homeTeam','homeManagerName','venueName']
+    cat_cols2 = ['refereeName', 'awayManagerName', 'homeManagerName', 'venueName']
+    cat_cols3 = ['refereeName', 'venueName','homeFormation','awayFormation']
+    '''
     cat_cols4 = ['refereeName', 'venueName']
     for column in cat_cols4:
         le = LabelEncoder()
@@ -99,10 +113,10 @@ def category_encoder(df):
         df[column] = le.transform(df[column])
         encode[column] = le
         cat_map[column] = dict(zip(le.classes_, le.transform(le.classes_)))
-    #print(cat_map) #categories mapping
+    # print(cat_map) #categories mapping
     return df
 
 
 if __name__ == '__main__':
-    csvFILEpath = Input("Enter path to file that you wish to preprocess: (should be a .csv file) ")
-    df = feat_eng(csvFILEpath)
+    csvFILEpath = input("Enter path to file that you wish to preprocess: (should be a .csv file) ")
+    df = create_model_df(csvFILEpath)
