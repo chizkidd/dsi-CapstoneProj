@@ -27,7 +27,8 @@ def clean(csv_file):
     noHT_epl_df = noHT_epl_df.fillna(noHT_epl_df.median())
 
     # create a new column - final game results differential (>, <, or = 0)
-    noHT_epl_df['results'] = noHT_epl_df['homeGoalFT'] - noHT_epl_df['awayGoalFT']
+    noHT_epl_df['homeXResults'] = noHT_epl_df['homeGoalFT'] - noHT_epl_df['awayGoalFT']
+    noHT_epl_df['awayXResults'] = noHT_epl_df['awayGoalFT'] - noHT_epl_df['homeGoalFT']
 
     # handle categories - categorical encoding
     # allow for classification modeling
@@ -37,8 +38,10 @@ def clean(csv_file):
     WDL_mask = {-6: 'L', -5: 'L', -4: 'L', -3: 'L', -2: 'L', -1: 'L', 0: 'D',
                 1: 'W', 2: 'W', 3: 'W', 4: 'W', 5: 'W', 6: 'W', 7: 'W', 8: 'W'}
 
-    noHT_epl_df['resultsLabel'] = noHT_epl_df['results'].map(results_mask)
-    noHT_epl_df['resultsWDL'] = noHT_epl_df['results'].map(WDL_mask)
+    noHT_epl_df['homeXResultsLabel'] = noHT_epl_df['homeXResults'].map(results_mask)
+    noHT_epl_df['homeXResultsWDL'] = noHT_epl_df['homeXResults'].map(WDL_mask)
+    noHT_epl_df['awayXResultsLabel'] = noHT_epl_df['awayXResults'].map(results_mask)
+    noHT_epl_df['awayXResultsWDL'] = noHT_epl_df['awayXResults'].map(WDL_mask)
 
     # encoding categories for modeling
     # encoding team-names, team formation
@@ -48,7 +51,7 @@ def clean(csv_file):
                  'Norwich': 17, 'QPR': 18, 'Man City': 19, 'Aston Villa': 20, 'Crystal Palace': 21,
                  'Cardiff': 22, 'Hull': 23, 'Burnley': 24, 'Leicester': 25, 'Watford': 26,
                  'Bournemouth': 27, 'Middlesbrough': 28}
-    #inv_team_mask = {v: k for k, v in team_mask.items()}
+    # inv_team_mask = {v: k for k, v in team_mask.items()}
 
     # http://www.freeyouthsoccerdrills.com/soccer-formations.html
     # https://bleacherreport.com/articles/1375589-15-tactical-formations-and-what-theyre-good-for#slide7
@@ -82,13 +85,13 @@ def only_numerics_df(csv_file):
     A function that does feature engineering on a csv file and returns a dataframe for modeling
     '''
 
-    cleaned_df = feat_eng(csv_file)
+    cleaned_df = clean(csv_file)
     model_df = cleaned_df.drop(['awayTeamLineUp', 'homeTeamLineUp',
-                              'homeGoalFT', 'awayGoalFT', 'awayManagerName', 'homeManagerName',
-                              'date', 'division', 'results', 'resultsWDL'], axis=1)
+                               'awayManagerName', 'homeManagerName',
+                              'date', 'division'], axis=1)
     model_df = category_encoder(model_df)
-    model_df.columns = sorted(model_df.columns)
-    return model_df
+    sorted_col_model_df = model_df.sort_index(axis=1)
+    return sorted_col_model_df
 
 
 def category_encoder(df):
@@ -120,5 +123,5 @@ def category_encoder(df):
 
 if __name__ == '__main__':
     csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
-    df = clean(csvFILEpath)
+    #df = clean(csvFILEpath)
     df2 = only_numerics_df(csvFILEpath)

@@ -48,7 +48,7 @@ def feat_eng(csv_file):
                  'Norwich': 17, 'QPR': 18, 'Man City': 19, 'Aston Villa': 20, 'Crystal Palace': 21,
                  'Cardiff': 22, 'Hull': 23, 'Burnley': 24, 'Leicester': 25, 'Watford': 26,
                  'Bournemouth': 27, 'Middlesbrough': 28}
-    #inv_team_mask = {v: k for k, v in team_mask.items()}
+    # inv_team_mask = {v: k for k, v in team_mask.items()}
 
     # http://www.freeyouthsoccerdrills.com/soccer-formations.html
     # https://bleacherreport.com/articles/1375589-15-tactical-formations-and-what-theyre-good-for#slide7
