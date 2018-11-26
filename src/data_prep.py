@@ -73,7 +73,7 @@ def clean(csv_file):
     return noHT_epl_df
 
 
-def create_model_df(csv_file):
+def only_numerics_df(csv_file):
     '''
 
     :param csv_file: [type: csv file]
@@ -87,6 +87,7 @@ def create_model_df(csv_file):
                               'homeGoalFT', 'awayGoalFT', 'awayManagerName', 'homeManagerName',
                               'date', 'division', 'results', 'resultsWDL'], axis=1)
     model_df = category_encoder(model_df)
+    model_df.columns = sorted(model_df.columns)
     return model_df
 
 
@@ -120,3 +121,4 @@ def category_encoder(df):
 if __name__ == '__main__':
     csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
     df = clean(csvFILEpath)
+    df2 = only_numerics_df(csvFILEpath)
