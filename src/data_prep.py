@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 
-def feat_eng(csv_file):
+def clean(csv_file):
     '''
     :param csv_file: [type: csv file]
     :return: df: [type: pandas dataframe]
@@ -66,10 +66,10 @@ def feat_eng(csv_file):
                       '4321': 'BD', '4132': 'AB', '3142': 'AA', '4312': 'AB', '4240': 'AA',
                       '343d': 'DD'}
 
-    noHT_epl_df['homeTeam'] = noHT_epl_df['homeTeam'].map(team_mask)
-    noHT_epl_df['awayTeam'] = noHT_epl_df['awayTeam'].map(team_mask)
-    noHT_epl_df['homeFormation'] = noHT_epl_df['homeFormation'].map(formation_mask).astype('category').cat.codes
-    noHT_epl_df['awayFormation'] = noHT_epl_df['awayFormation'].map(formation_mask).astype('category').cat.codes
+    noHT_epl_df['homeTeamCode'] = noHT_epl_df['homeTeam'].map(team_mask)
+    noHT_epl_df['awayTeamCode'] = noHT_epl_df['awayTeam'].map(team_mask)
+    noHT_epl_df['homeFormationCode'] = noHT_epl_df['homeFormation'].map(formation_mask).astype('category').cat.codes
+    noHT_epl_df['awayFormationCode'] = noHT_epl_df['awayFormation'].map(formation_mask).astype('category').cat.codes
     return noHT_epl_df
 
 
@@ -119,4 +119,4 @@ def category_encoder(df):
 
 if __name__ == '__main__':
     csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
-    df = create_model_df(csvFILEpath)
+    df = clean(csvFILEpath)
