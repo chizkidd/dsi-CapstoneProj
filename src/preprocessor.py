@@ -95,7 +95,7 @@ def category_encoder(df):
     :param df: dataframe
     :return: df: dataframe
 
-    categorical label encoding for ['refereeName', 'venueName']
+    Categorical label encoding for ['refereeName', 'venueName']
 
     '''
     encode = {}

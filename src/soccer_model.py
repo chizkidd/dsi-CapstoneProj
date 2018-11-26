@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from itertools import cycle
 
-from preprocessor import feat_eng, category_encoder
+from preprocessor import feat_eng, create_model_df, category_encoder
 
 from scipy import interp
 import scipy.stats as scs
@@ -27,39 +27,40 @@ from sklearn.naive_bayes import MultinomialNB
 import matplotlib.pyplot as plt
 
 class Model(object):
-
+    '''
+    Model for predictions for supervised/unsupervised learning.
+    '''
     def __init__(self, data_path):
         self.data_path = data_path
         self.columns = None
 
     def get_data(self):
         '''
-        Preprocess csvfile through dataframe
-        Create features set X
-        Create targets set y
+        Preprocess csv file through dataframe.
+        Create features set X.
+        Create targets set y.
         '''
-        df = feat_eng(csvFILEpath)
-        df = preprocess_feat_eng(json_df)
+        df = create_model_df(csvFILEpath)
         y = df.pop('resultsLabel')
         X = df.values
         return X, y
 
     def fit(self, X_train, y_train, model):
         '''
-        Fit model classifier/regressor with training data
+        Fit model classifier/regressor with training data.
         '''
         self.model = model
         self.model.fit(X_train, y_train)
 
     def predict_proba(self, X_test):
         '''
-        Returns predicted probabilities for targets [-1, 0, 1] --> [loss, draw, win]
+        Returns predicted probabilities for targets [-1, 0, 1] --> [loss, draw, win].
         '''
         return self.model.predict_proba(X_test)[:, 1]
 
     def predict(self, X_test):
         '''
-        Returns predicted probabilities for targets
+        Returns predicted probabilities for targets.
         '''
         return self.model.predict(X_test)
 

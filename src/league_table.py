@@ -6,15 +6,15 @@ from preprocessor import feat_eng, create_model_df, category_encoder
 
 def create_league_table(csv_file):
     '''
-    :param df: dataframe
-    :return: df: dataframe
+    :param csv_file: input a csv file for pre-processing [type: csv file]
+    :return: df: cumulative table [type: pandas dataframe]
 
-    Recreate a cummulative League Table over the seasons of data collection
-    Show teams and corresponding points accumulated using league point system
+    Recreate a cumulative League Table over the seasons of data collection.
+    Show teams and corresponding points accumulated using specific league point system.
     '''
     premtable = feat_eng(csv_file)
 
-    # encoding for results (win, loss, draw)
+    # encoding for results (win, loss, draw) for home team and away team
     EPL_res_keyH = {'W': 3, 'L': 0, 'D': 1}
     EPL_res_keyA = {'W': 0, 'L': 3, 'D': 1}
 
@@ -22,7 +22,7 @@ def create_league_table(csv_file):
     premtable['EPLresultH'] = premtable.resultsWDL.map(EPL_res_keyH)
     premtable['EPLresultA'] = premtable.resultsWDL.map(EPL_res_keyA)
 
-    # encode team name back
+    # encode team name back from numerical code to actual team name
     team_mask = {'Arsenal': 1, 'Swansea': 2, 'West Brom': 3, 'Newcastle': 4, 'Liverpool': 5,
                  'West Ham': 6, 'Chelsea': 7, 'Everton': 8, 'Man Utd': 9, 'Southampton': 10,
                  'Stoke': 11, 'Sunderland': 12, 'Wigan': 13, 'Tottenham': 14, 'Fulham': 15, 'Reading': 16,
@@ -47,10 +47,11 @@ def create_league_table(csv_file):
 def plot_league_table(csv_file):
     '''
 
-    :param df:
-    :return: plot of league table
+    :param csv_file: input a csv file [type: csv file]
+    :return: plot of league table [type: matplotLib object]
 
-    make a visual plot of the league table created in 'league_table'
+    Make a visual plot of the cumulative table over the seasons of data collection using specific league
+    point system. The cumulative league table visualization is shown here through matplotLib.
 
     '''
     cum_league_table = create_league_table(csv_file)
