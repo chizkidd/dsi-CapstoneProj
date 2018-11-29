@@ -40,7 +40,7 @@ def create_league_table(csv_file):
 
     epltable = pd.concat([HomePtTally_df, AwayPtTally_df], axis=1)
     epltable['EPLresult'] = epltable['EPLresultH'] + epltable['EPLresultA']
-    print(epltable.sort_values('EPLresult', ascending=False))
+    # print(epltable.sort_values('EPLresult', ascending=False))
     return epltable
 
 
@@ -55,10 +55,15 @@ def plot_league_table(csv_file):
 
     '''
     cum_league_table = create_league_table(csv_file)
-    cum_league_table['EPLresult'].sort_values(ascending=False).plot(kind='bar', figsize=(10, 5))
-    plt.title('Point Tally per Team from 2012/13 to 2016/2017')
-    plt.xlabel('EPL team')
-    plt.ylabel('Actual Cumulative Point Tally')
+    cum_league_table['EPLresult'].sort_values(
+        ascending=False).plot(kind='bar', figsize=(12, 8), label='EPL points system - Bar')
+    plt.plot(cum_league_table['EPLresult'].sort_values(ascending=False).index,
+             cum_league_table['EPLresult'].sort_values(ascending=False).values,
+             linestyle='-', marker='o', label="EPL points system - Line", color='orange')
+    plt.title('Point Tally per Team from 2012/13 to 2016/2017', size=20, fontweight='bold')
+    plt.legend(loc='upper right', fontsize=13)
+    plt.xlabel('EPL team', size=15)
+    plt.ylabel('Actual Cumulative Point Tally', size=15)
     plt.show()
 
 

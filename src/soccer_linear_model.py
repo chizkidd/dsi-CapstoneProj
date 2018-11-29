@@ -26,8 +26,8 @@ def get_model_df(csv_file,num_games=10, min_games_reqd=5):
     # print(len(roll_cols))
     final_roll_df = pd.DataFrame(roll_mat_list, columns=roll_cols, index=roll_df.index.get_level_values('game_id')[::2])
     final_roll_df2 = final_roll_df.drop(['Home_TeamCode', 'Away_TeamCode', 'Home_at_home', 'Away_at_home',
-                                                 'Away_Total_GoalsFT', 'Home_XResults', 'Away_XResults',
-                                                 'Home_RatingsFT', 'Away_RatingsFT'], axis=1)
+                                         'Away_Total_GoalsFT', 'Home_XResults', 'Away_XResults',
+                                         'Home_RatingsFT', 'Away_RatingsFT'], axis=1)
     model_roll_df = final_roll_df2.dropna()
 
     return model_roll_df
@@ -40,6 +40,8 @@ def linear_model(model_df, Linear_model, test_size, scaled=None):
     input: model_df: dataframe to use for modeling
            Linear_model: Linear model (linear regression, Lasso, Ridge)
            test_size: train_test size split fraction WRT to test data (between 0 and 1)
+           input_train_test_data: default-->None, if [no_train_test_split] = True, give input test and train data
+           no_train_test_split: default-->False, but if True, uses input test and train data set
            scaled: default-->False, but if True specify what scaling form ('Standard', 'MinMax', 'Normalized')
     output: model, r-squared, Mean Absolute error, Root Mean Square Error, dataframe with actual and predicted values
     '''
@@ -60,9 +62,18 @@ def linear_model(model_df, Linear_model, test_size, scaled=None):
     else:
         model_df = model_df
 
+    # input_train_test_data = None, no_train_test_split=False
+    #if no_train_test_split:
+    #    X_train, X_test, y_train, y_test = input_train_test_data
+    #else:
+    #    X_train, X_test, y_train, y_test = train_test_split(model_df.drop('Home_Total_GoalsFT', axis=1),
+    #                                                    model_df['Home_Total_GoalsFT'], test_size=test_size,
+    #                                                    random_state=789)
+
     X_train, X_test, y_train, y_test = train_test_split(model_df.drop('Home_Total_GoalsFT', axis=1),
                                                         model_df['Home_Total_GoalsFT'], test_size=test_size,
                                                         random_state=789)
+
     Linear_model.fit(X_train, y_train)
     rsq = abs(Linear_model.score(X_test, y_test))
     preds = Linear_model.predict(X_test)

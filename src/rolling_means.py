@@ -117,7 +117,8 @@ def teams_dict_rolling_means(df, num_games=10, min_games_reqd=5):
     A function that creates a rolling average team stats dataframe from a given dataframe
 
     '''
-    df = df.drop('AerialsTotalFT', axis=1)
+    # away team aerials stats exactly the same as home team aerial stats for >99% of total data (all 5 leagues)
+    # df = df.drop('AerialsTotalFT', axis=1)
     games = df.groupby(['days_after_opener', 'game_id', 'Team']).sum()
     rolling_means_dict = {}
     for team in games.index.get_level_values('Team'):
