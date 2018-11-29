@@ -21,7 +21,7 @@ def clean(csv_file):
     noHT_epl_df = epl_df[epl_df.columns.drop(epl_df.filter(regex='HT', axis=1).columns)]
 
     # drop unnecessary extra index columns
-    noHT_epl_df = noHT_epl_df.drop(['Unnamed: 0', 'id'], axis=1)
+    noHT_epl_df = noHT_epl_df.drop(['Unnamed: 0'], axis=1)
 
     # handle missing null values (column with max null % = 4.1%)
     noHT_epl_df = noHT_epl_df.fillna(noHT_epl_df.median())
@@ -33,9 +33,9 @@ def clean(csv_file):
     # handle categories - categorical encoding
     # allow for classification modeling
     # a void [scikit-learn error: The least populated class in y has only 1 member]
-    results_mask = {-6: -1, -5: -1, -4: -1, -3: -1, -2: -1, -1: -1,
+    results_mask = {-8: -1, -7: -1, -6: -1, -5: -1, -4: -1, -3: -1, -2: -1, -1: -1,
                     0: 0, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1}
-    WDL_mask = {-6: 'L', -5: 'L', -4: 'L', -3: 'L', -2: 'L', -1: 'L', 0: 'D',
+    WDL_mask = {-8: 'L', -7: 'L', -6: 'L', -5: 'L', -4: 'L', -3: 'L', -2: 'L', -1: 'L', 0: 'D',
                 1: 'W', 2: 'W', 3: 'W', 4: 'W', 5: 'W', 6: 'W', 7: 'W', 8: 'W'}
 
     noHT_epl_df['homeXResultsLabel'] = noHT_epl_df['homeXResults'].map(results_mask)
@@ -88,7 +88,7 @@ def only_numerics_df(csv_file):
     cleaned_df = clean(csv_file)
     model_df = cleaned_df.drop(['awayTeamLineUp', 'homeTeamLineUp',
                                'awayManagerName', 'homeManagerName',
-                              'date', 'division'], axis=1)
+                              'division'], axis=1)
     model_df = category_encoder(model_df)
     sorted_col_model_df = model_df.sort_index(axis=1)
     return sorted_col_model_df
