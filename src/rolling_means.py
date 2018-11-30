@@ -6,7 +6,7 @@ from data_prep import clean, only_numerics_df
 def clean_data(csv_file):
     '''
     :param csv_file: [type: csv file]
-    :return: df: [type: pandas dataframe]
+    :return: (df, df, df): [type: a tuple of pandas dataframe]
 
     A function that preps data for rolling means / modelling
 
@@ -17,7 +17,7 @@ def clean_data(csv_file):
 
 def cluster_data_prep(csv_file):
     '''
-    :param: df:  [type: pandas dataframe]
+    :param csv_file:  [type: csv file]
     :return: df: {[ype: pandas dataframe}
 
     A function that concatenates home and away data
@@ -66,7 +66,7 @@ def cluster_data_prep(csv_file):
 
 def total_goals_per_game(clust_df):
     '''
-    :param df:  [type: pandas dataframe]
+    :param clust_df:  [type: pandas dataframe]
     :return: df:  [type: pandas dataframe]
 
     A function that returns a dataframe containing the total number of goals scored in a game
@@ -82,7 +82,7 @@ def total_goals_per_game(clust_df):
 
 def create_days_opener(df):
     '''
-    :param  dataframe containing home and away joined under the same stats
+    :param  df: dataframe containing home and away joined under the same stats
     :return: dataframe containing days after opener
 
     A function that adds 'a days after opener' column to an input dataframe
@@ -94,9 +94,11 @@ def create_days_opener(df):
     return df
 
 
-def single_team_rolling_means(team_df, num_games=10, min_games_reqd=5):
+def single_team_rolling_means(team_df, num_games, min_games_reqd):
     '''
-    :param  df: team dataframe
+    :param  team_df: team dataframe
+    :param num_games
+    :param min_games_reqd
     :return: df: dataframe of shifted rolling mean
 
     A function that calculates the rolling means per team and returns a dataframe output
@@ -107,10 +109,12 @@ def single_team_rolling_means(team_df, num_games=10, min_games_reqd=5):
     return roll.shift(1)
 
 
-def teams_dict_rolling_means(df, num_games=10, min_games_reqd=5):
+def teams_dict_rolling_means(df, num_games, min_games_reqd):
     '''
     :param  df: dataframe containing home and away joined under the same stats and also with
     days after opener added and (DATE DROPPED)
+    :param num_games
+    :param min_games_reqd
     :return: {}: dictionary of rolling average of each team using a certain number of games and
     a minimum number of games
 
@@ -129,7 +133,7 @@ def teams_dict_rolling_means(df, num_games=10, min_games_reqd=5):
 
 def teams_df_rolling_means(roll_means_dict):
     '''
-    :param  dictionary of all teams rolling means
+    :param  roll_means_dict: dictionary of all teams rolling means
     :return: dataframe of all teams rolling means
 
     A function that creates a rolling means dataframe from a rolling means dictionary
@@ -149,7 +153,9 @@ def teams_df_rolling_means(roll_means_dict):
 
 def final_df_rolling_means(csv_file, num_games=10, min_games_reqd=5):
     '''
-    :param csv_file:
+    :param csv_file
+    :param num_games
+    :param min_games_reqd
     :return: dataframe:
 
     A function that performs rolling means on a processed csv_file and returns a dataframe apt for modelling
@@ -179,5 +185,5 @@ def final_df_rolling_means(csv_file, num_games=10, min_games_reqd=5):
 
 if __name__ == '__main__':
     csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
-    roll_df = rmeans.final_df_rolling_means(csvFILEpath)
+    roll_df = final_df_rolling_means(csvFILEpath)
 
