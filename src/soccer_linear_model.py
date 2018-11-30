@@ -92,7 +92,7 @@ def linear_model(model_df, Linear_model, test_size, scaled=None):
 if __name__ == '__main__':
     csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
     df = get_model_df(csvFILEpath)
-    lassoL1 = Lasso(alpha=0.05, tol=.0002)
+    lassoL1 = Lasso(alpha=0.005, tol=.0002)
     ridgeL2 = Ridge(alpha=0.005)
     linreg = LinearRegression()
     LassoPred = linear_model(df, lassoL1, 0.25, 'MinMax')

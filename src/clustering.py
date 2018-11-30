@@ -65,7 +65,7 @@ def predict(clust_data, n_clusters=20, scaled=False):
     :param clust_data: [type: pandas dataframe]
     :param n_clusters: [type: int] - number of clusters for clustering
     :param scaled: default--> False ; normalize data-set using MinMax scaling
-    :return: dataframe: [type: pandas dataframe] - tactical patterns of each cluster
+    :return: array: k-means cluster predictions (what clusters each data point falls into)
     '''
     if scaled:
         minmax = MinMaxScaler().fit(clust_data)
@@ -170,6 +170,20 @@ def low_percentiles(clust_kmeans_exp):
     return low_percents
 
 
+def medium_percentiles(clust_kmeans_exp):
+    '''
+    A function that breaks the tactics cluster dataframe into 5 different dataframes
+    (Very High, High, Medium, Low, Very Low) and then returns (Medium) in a
+    dataframe
+
+    :param clust_kmeans_exp: type: pandas dataframe] - tactical patterns of each cluster
+    :return:
+    '''
+    medium_percents = clust_kmeans_exp[
+        (clust_kmeans_exp[clust_kmeans_exp.columns] == 'Medium')].fillna('-')
+    return medium_percents
+
+
 def k_elbow_plot(csv_file, scaled=False):
     '''
     A function that creates a k-elbow plot to help identify optimal k value
@@ -202,7 +216,7 @@ def k_elbow_plot(csv_file, scaled=False):
     plt.xlabel('k - number of clusters')
     plt.ylabel('Distortion')
     plt.title('The Elbow Method showing the optimal k')
-    plt.xticks(np.arange(0, max(K)+1, 2.0))
+    plt.xticks(np.arange(0, max(cluster_range)+1, 2.0))
     plt.show()
 
 
@@ -211,5 +225,6 @@ if __name__ == '__main__':
     kmeans_tactics_df = trend(csvFILEpath, 20, True)
     low_and_very_low = low_percentiles(kmeans_tactics_df)
     high_and_very_high = high_percentiles(kmeans_tactics_df)
-    k_elbow_plot(csvFILEpath)
+    medium = medium_percentiles(kmeans_tactics_df)
+    k_elbow_plot(csvFILEpath, True)
 
