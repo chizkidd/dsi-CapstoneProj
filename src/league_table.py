@@ -68,5 +68,6 @@ def plot_league_table(csv_file):
 
 
 if __name__ == '__main__':
-    csv_file = input("Enter path to file that you wish to preprocess and plot: (should be a .csv file) ")
-    plot_table = plot_league_table(csv_file)
+    csv_file = input("Enter path to file for plotting: (should be a .csv file)-->"
+                     "../data/FootballEurope/FootballEurope.csv ")
+    plot_league_table(csv_file)

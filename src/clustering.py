@@ -221,10 +221,12 @@ def k_elbow_plot(csv_file, scaled=False):
 
 
 if __name__ == '__main__':
-    csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
+    csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) -->"
+                        "../data/FootballEurope/FootballEurope.csv")
     kmeans_tactics_df = trend(csvFILEpath, 20, True)
     low_and_very_low = low_percentiles(kmeans_tactics_df)
     high_and_very_high = high_percentiles(kmeans_tactics_df)
     medium = medium_percentiles(kmeans_tactics_df)
     k_elbow_plot(csvFILEpath, True)
+    print(medium)
 

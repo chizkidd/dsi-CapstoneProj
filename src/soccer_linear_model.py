@@ -83,18 +83,22 @@ def linear_model(model_df, Linear_model, test_size, scaled=None):
     MAE = sum(np.abs(y_test - preds)) / len(preds)
     RootMSE = np.sqrt(np.sum(((y_test - preds) ** 2)) / (len(preds) - 1))
     print('Model:{}'.format(Linear_model))
-    print('R-squared:{}'.format(rsq))
-    print('Mean Abs Error:{}'.format(MAE))
-    print('RMSE:{}'.format(RootMSE))
+    print('R-squared:{0:0.3f}'.format(rsq))
+    print('Mean Abs Error:{0:0.3f}'.format(MAE))
+    print('RMSE:{0:0.3f}'.format(RootMSE))
     return Linear_model, rsq, MAE, RootMSE, results_df
 
 
 if __name__ == '__main__':
-    csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
+    csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) -->"
+                        "../data/FootballEurope/FootballEurope.csv")
     df = get_model_df(csvFILEpath)
     lassoL1 = Lasso(alpha=0.005, tol=.0002)
     ridgeL2 = Ridge(alpha=0.005)
     linreg = LinearRegression()
+    print()
     LassoPred = linear_model(df, lassoL1, 0.25, 'MinMax')
+    print()
     LinRegPred = linear_model(df, linreg, 0.25, 'MinMax')
+    print()
     RidgePred = linear_model(df, ridgeL2, 0.25, 'MinMax')

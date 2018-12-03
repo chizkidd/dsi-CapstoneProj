@@ -63,6 +63,7 @@ def dominancy_when_away(csv_file):
 
 
 if __name__ == '__main__':
-    csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
+    csvFILEpath = input("Enter path to file for plotting: (should be a .csv file) -->"
+                        "../data/FootballEurope/FootballEurope.csv ")
     dominancy_at_home(csvFILEpath)
     dominancy_when_away(csvFILEpath)

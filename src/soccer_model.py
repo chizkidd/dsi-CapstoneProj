@@ -73,7 +73,24 @@ class SoccerModel(object):
 
 
 if __name__ == '__main__':
-    csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
+    csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) --> "
+                        "../data/FootballEurope/FootballEurope.csv ")
     model = SoccerModel(csvFILEpath)
     X, y = model.get_data()
-    model.fit(X, y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y,
+                    test_size=0.2, random_state=123, stratify=y)
+    rfc = RandomForestClassifier(n_estimators=100, random_state=123, n_jobs=-1)
+    model.fit(X_train, y_train, rfc)
+    y_pred = model.predict(X_test)
+    print()
+    print('Soccer model accuracy: {0:0.2f}%'.format(100*model.score(X_test, y_test)))
+    C = confusion_matrix(y_test, y_pred)
+    Cnorm = np.around((100 * C / C.astype(np.float).sum(axis=1)), decimals=1)
+    # print('Confusion Matrix:\n {}'.format(C))
+    print()
+    print('Confusion Matrix Normalized:\n {}'.format(Cnorm))
+    print()
+    print('      Confusion Matrix:')
+    print(pd.crosstab(y_test, y_pred, rownames=['True'],
+            colnames=['Predicted'], margins=True))
+
