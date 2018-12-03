@@ -26,6 +26,7 @@ from sklearn.naive_bayes import MultinomialNB
 
 import matplotlib.pyplot as plt
 
+
 class SoccerModel(object):
     '''
     Model for soccer predictions for supervised/unsupervised learning.
@@ -40,14 +41,14 @@ class SoccerModel(object):
         Create features set X.
         Create targets set y.
         '''
-        df = create_model_df(csvFILEpath)
+        df = create_model_df(self.data_path)
         y = df.pop('resultsLabel')
         X = df.values
         return X, y
 
     def fit(self, X_train, y_train, model):
         '''
-        Fit model classifier/regressor with training data.
+        Fit model classifier with training data.
         '''
         self.model = model
         self.model.fit(X_train, y_train)
@@ -60,13 +61,19 @@ class SoccerModel(object):
 
     def predict(self, X_test):
         '''
-        Returns predicted probabilities for targets.
+        Returns predictions for the defined model
         '''
         return self.model.predict(X_test)
+
+    def score(self, X_test, y_test):
+        '''
+        Returns accuracy score for predictions
+        '''
+        return self.model.score(X_test, y_test)
 
 
 if __name__ == '__main__':
     csvFILEpath = input("Enter path to file that you wish to pre-process: (should be a .csv file) ")
-    model = Model(csvFILEpath)
+    model = SoccerModel(csvFILEpath)
     X, y = model.get_data()
     model.fit(X, y)
