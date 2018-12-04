@@ -30,8 +30,10 @@ def cluster_data_prep(csv_file):
         ready_df = ready_df.drop(['resultsLabel'], axis=1)
     data = ready_df
     data = data[sorted(data.columns)]
-    away_cols = data.columns[:27]
-    home_cols = data.columns[28:55]
+    # away_cols = data.columns[:27]
+    # home_cols = data.columns[28:55]
+    away_cols = data.filter(regex='away', axis=1).columns
+    home_cols = data.filter(regex='home', axis=1).columns
     data_home = data.ix[:, home_cols]
     data_away = data.ix[:, away_cols]
     new_col = []
