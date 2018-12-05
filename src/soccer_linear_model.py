@@ -9,10 +9,10 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler, normalize
 
 def get_model_df(csv_file,num_games=10, min_games_reqd=5):
     '''
-    :param csv_file:
-    :return:
+    :param csv_file: [type: csv file]
+    :return: df: [type: dataframe]
 
-    A function to get perform rolling averages
+    A function to get perform rolling averages on dataset
 
     '''
 
@@ -35,7 +35,7 @@ def get_model_df(csv_file,num_games=10, min_games_reqd=5):
 
 def linear_model(model_df, Linear_model, test_size, scaled=None):
     '''
-    A function that trains a linear model and retrieves metrics scores on test data
+    A function that trains a linear model and predicts, and retrieves metrics scores on test data
 
     input: model_df: dataframe to use for modeling
            Linear_model: Linear model (linear regression, Lasso, Ridge)

@@ -79,7 +79,7 @@ def create_model_df(csv_file):
     :param csv_file: [type: csv file]
     :return: df: [type: pandas dataframe]
 
-    A function that does feature engineering on a csv file and returns a dataframe for modeling
+    A function that does feature engineering on a csv file, drop some features and returns a dataframe for modeling
     '''
 
     cleaned_df = feat_eng(csv_file)

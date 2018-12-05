@@ -7,7 +7,7 @@ def clean_data(csv_file):
     :param csv_file: [type: csv file]
     :return: df: [type: pandas dataframe]
 
-    A function that preps data for rolling means / modelling
+    A function that preps and cleans data for modelling
 
     '''
     df_clean = only_numerics_df(csv_file)

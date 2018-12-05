@@ -1,64 +1,38 @@
-# dsi-CapstoneProj
-Capstone Project for Galvanize DSI Fall 2018
+# <center> Final Capstone Proposal - Soccer Match Results Prediction  </center>
 
-## Preliminary Proposal Specifications
 
-The capstone project will serve as the key evidence for employers about what you're capable of building.
+## <center> <img src="images/epl_predictor.png" width="400" height="200" /> </center>
 
-**Purpose**: Organize initial ideas and allow us to provide feedback!
 
-**Format**: A well formatted markdown file that will be part of your final
-git repo.
+## Purpose, Background Information & Motivation
+The purpose of my capstone project is to predict the result of a soccer game in the English Premier League ([EPL](https://www.premierleague.com/)) based on expected goals (per game, and/or differentials). The major problem that I aim to tackle with my model is the **uncertainty and variability in soccer** influenced by many factors ranging from player performance to team performance to manager tactical decisions (formations, lineup selection). In sports, the betting odds industry is a significant financial industry that is based on the ability to accurately predict the outcome of games based on different factors.  Furthermore, soccer teams develop "winning strategies" by studying previous performances to minimize negatives and maximize positives. The presence of a model that can help teams pinpoint a few key factors that have a significant positive impact on their future performance will be very important for better financial expenditures as a result of increasing efficiency in improvement of relevant tactical strategies. Below are some resources (papers, blogs, etc.) that have solved similar problems of winning team prediction in soccer using different machine learning models, and different features that guide the definition of success.
+  - [Predicting The Result Of English Premier League Soccer Games With The Use Of Poisson Models ](https://www2.stetson.edu/~efriedma/research/boldrin.pdf)
+  - [Predicting Soccer Match Results in the English Premier League](http://cs229.stanford.edu/proj2014/Ben%20Ulmer,%20Matt%20Fernandez,%20Predicting%20Soccer%20Results%20in%20the%20English%20Premier%20League.pdf)
+  - [What Is the Best Method for Predicting Football Matches?
+](https://cartilagefreecaptain.sbnation.com/2014/3/5/5473358/what-is-the-best-method-for-predicting-football-matches)
+  - [The Beautiful Game: Predicting the Premier League with a random model](https://towardsdatascience.com/o-jogo-bonito-predicting-the-premier-league-with-a-random-model-1b02fa3a7e5a)
+  - [Predicting Football Results With Statistical Modeling](https://dashee87.github.io/football/python/predicting-football-results-with-statistical-modelling/)
 
-**Count**: You should have 3 proposals. Ideally
-  * one where you know you can get the data,
-  * one where you think you can get the data and
-  * one that is a stretch for the data being obtainable.
+From the resources above and others online, poisson models were widely used due to the discrete probability distribution nature of a 90-minute match game in soccer for goals per game and the understanding of poisson distribution. Classifier models (linear stochastic gradient descent, naive bayes, support vector machines (SVM), random forest, Markov model, etc.) were also used in some cases to explicitly predict either a win, draw or loss.
 
-**Include the following**:
-Note, the responses to these questions should be complete sentences,
- not sentence fragments.
-1. High level description of project.
-2. What question or problem are you trying to solve?
-3. How will you present your work?  
-  * Web app
-  * Visualization
-  * Presentation - slides
-4. What are your data sources?
-5. What’s your next step towards making this your project.
-  * Probably getting the data.
 
-**How to Submit**
-Initialize a repo for your capstone, and upload the file as ```preliminary_proposal.md```
+## Presentation
+ The capstone project will be presented during Capstone showcase using a presentation slideshow (possibility of web app given time constraint and substantial positive project progress).
 
-# Final Proposal Specifications
 
-**Purpose**: Begin to organize actual capstone project.
+## Data Sources
+My goal is to obtain data from the sources (team, and player) below. [WhoScored.com](https://www.whoscored.com/) collects data for 15,000 games across 5 different leagues (England, Spain, Italy, France and Germany). For this capstone project, the focus will be the English Premier League, as such only data from England will be used. Currently, web-scraping functions are being written to scrape the dataset, while mongoDB or Postgres-SQL DB will be the storage location for the dataset.
+1) [WhoScored - Team Statistics](https://www.whoscored.com/Statistics)
+2) [WhoScored - Player Statistics](https://www.whoscored.com/Regions/252/Tournaments/2/Seasons/6829/Stages/15151/PlayerStatistics/England-Premier-League-2017-2018)
+3) [WorldFootball - EPL statistics](https://www.worldfootball.net/stats/eng-premier-league/)
 
-**Format**: Since you will want a public repo at the end of the project, you should create a git repo, 
-and your project proposal will be the README.md file in it.
 
-**Length**: Each of the numbered points should have at a few complete sentences to address them. 
+## Potential Problems
+ Potential problems include superficial or no focus on the most important features due to large number of features, the temporal nature of the dataset, limited relevant data from the dataset and the definition of success/win for non-classifier models, amongst the wide range of problems. The issue of identifying the most important features can be reduced by studying the underlying principle behind the choices of target variables with respect to features in other good widespread models. The temporal nature of the dataset can be handled by a TimeSeriesSplit class which takes into account the time dependency of the dataset. With the issue of limited data, given a running model for soccer in England, the model can be expanded to the other 4 countries (France, Spain, Italy and Germany) that constitute the top 5 soccer leagues in Europe.
 
-**Include the following**:
+## What Next?
+ Currently, web-scraping and data cleaning functions are being developed to scrape the dataset from the website and then clean the dataset to a state that can be used to create the model. Also, merging datasets from WhoScored and WorldFootball dataset will be the next step after successful deployment of the web-scraping functions. Relevant features that influence the model include goals, assists, shots, chances created, tackles won, blocks, clearances, crosses, dribbles, passes made, interceptions, fouls, yellow cards and red cards. There are specific features that affect the chances of winning a game more than others. From background information research, shots and chances created seem to be the most important while fouls committed and yellow cards are the least important. And as such, explicit target variable definition based on feature selection for non-classifier models is on the to-do list.
 
-1. What are you trying to do?  Articulate your objectives using absolutely no jargon (i.e. as if
-you were explaining to a salesperson, executive, or recruiter).
-2. How has this problem been solved before? If you feel like you are addressing a novel
-issue, what similar problems have been solved, and how are you borrowing from those?
-3. What is new about your approach, why do you think it will be successful?
-4. Who cares?  If you're successful, what will the impact be?
-5. How will you present your work?  
-  * Web app - where will you host it, what kind of information will you present?
-  * Visualization - what final visuals are you aiming to produce?
-  * Presentation - slides, interpretive dance?
-6. What are your data sources? What is the size of your dataset, and what is your storage format?
-7. What are potential problems with your capstone, and what have you done to mitigate these problems?
-8. What is the next thing you need to work on?
-  * Getting the data, not just some, likely all?
-  * Understanding the data?
-  * Building a minimum viable product?
-  * Gauging how much signal might be in the data?
 
-**Submission**: Once you are satisfied with your submission, push it to github, and send the repo URL to your
-instructors via slack.
+
+![workflow](images/basic_workflow.png)

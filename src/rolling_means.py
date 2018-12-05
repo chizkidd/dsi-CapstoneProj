@@ -6,7 +6,7 @@ from data_prep import clean, only_numerics_df
 def clean_data(csv_file):
     '''
     :param csv_file: [type: csv file]
-    :return: (df, df, df): [type: a tuple of pandas dataframe]
+    :return: df: [type: a tuple of pandas dataframe]
 
     A function that preps data for rolling means / modelling
 
@@ -18,7 +18,7 @@ def clean_data(csv_file):
 def cluster_data_prep(csv_file):
     '''
     :param csv_file:  [type: csv file]
-    :return: df: {[ype: pandas dataframe}
+    :return: (df, df, df): [type: pandas dataframe]
 
     A function that concatenates home and away data
 
@@ -160,8 +160,8 @@ def final_df_rolling_means(csv_file, num_games=10, min_games_reqd=5):
     :param min_games_reqd
     :return: dataframe:
 
-    A function that performs rolling means on a processed csv_file and returns a dataframe apt for modelling
-    - re-indexes the dataframe with 3 indices (days_after_opener, game_id, team)
+    A function that performs rolling means on a processed csv_file and returns a dataframe apt for modelling, and 
+    re-indexes the dataframe with 3 indices (days_after_opener, game_id, team)
 
     '''
 

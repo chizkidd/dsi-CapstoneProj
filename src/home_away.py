@@ -26,9 +26,9 @@ def create_home_away(csv_file):
     # handle missing null values (column with max null % = 4.1%)
     noHT_epl_df = noHT_epl_df.fillna(noHT_epl_df.median())
 
-    # feature engineering
-    # attack and defence strength, dribbles stopped ratio
-    # shots on target and shots blocked percentage, and expected goal
+    # feature engineering for:
+    # attack and defence strength, dribbles_stopped ratio
+    # shots on target and shots blocked percentage, and expected goals
     noHT_epl_df['homeDribbledPastFT'] = noHT_epl_df['homeDribbledPastFT'].replace(0, 0.1)
     noHT_epl_df['awayDribbledPastFT'] = noHT_epl_df['awayDribbledPastFT'].replace(0, 0.1)
     noHT_epl_df['homeAttackStrength'] = noHT_epl_df['homeGoalFT'] / noHT_epl_df['homeGoalFT'].mean()
@@ -57,8 +57,7 @@ def create_home_away(csv_file):
     noHT_epl_df['awayXResults'] = noHT_epl_df['awayGoalFT'] - noHT_epl_df['homeGoalFT']
 
     # handle categories - categorical encoding
-    # allow for classification modeling
-    # a void [scikit-learn error: The least populated class in y has only 1 member]
+    # allow for classification modeling [scikit-learn error: The least populated class in y has only 1 member]
     results_mask = {-8: -1, -7: -1, -6: -1, -5: -1, -4: -1, -3: -1, -2: -1, -1: -1,
                     0: 0, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1}
     WDL_mask = {-8: 'L', -7: 'L', -6: 'L', -5: 'L', -4: 'L', -3: 'L', -2: 'L', -1: 'L', 0: 'D',
@@ -108,7 +107,8 @@ def get_model_df(csv_file):
     :param csv_file: [type: csv file]
     :return: df: [type: pandas dataframe]
 
-    A function that does feature engineering on a csv file and returns a dataframe for modeling
+    A function that does feature engineering on a csv file, drops some features 
+    and  returns a dataframe for modeling
     '''
 
     cleaned_df = create_home_away(csv_file)
@@ -164,7 +164,8 @@ def join_home_away(csv_file):
     :param csv_file:  [type: csv file]
     :return: df: {[ype: pandas dataframe}
 
-    A function that concatenates home and away data
+    A function that concatenates home and away data and returns a dataframe 
+    for home_away, home, and away respectively
 
     '''
     # ready_df = data_prep.only_numerics_df('../data/FootballEurope/FootballEurope.csv')
