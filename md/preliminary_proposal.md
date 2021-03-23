@@ -31,7 +31,7 @@ In soccer, future tactical strategies are made based on known statistics of both
 The major problem that I will like to tackle with my model is the uncertainty and variability in soccer influenced by many factors ranging from player performance to team performance to manager tactical decisions (formations, lineup selection).
 
 ### How I will present my work
-I would present a slide show and possibly a web app that takes in an input of 2 teams before a game and predicts the home team's expected goals and possibly the score outcome.
+I would present a slide show and/or possibly a web app that takes in an input of 2 teams before a game and predicts the home team's expected goals and possibly the score outcome.
 
 ### Data sources
 1) [WhoScored - Team Statistics](https://www.whoscored.com/Statistics)
